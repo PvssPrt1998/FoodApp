@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XeX-sM-GH8">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Dishes List View Controller-->
+        <scene sceneID="doR-s4-jdx">
+            <objects>
+                <viewController id="XeX-sM-GH8" customClass="DishesListViewController" customModule="ViewLikeModalPresentation" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J7Z-Jq-sGq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="taa-97-bbj">
+                                <rect key="frame" x="20" y="94" width="374" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="0FW-C0-fOh"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="CJ9-oO-mJQ" kind="embed" id="AJh-l4-oWa"/>
+                                </connections>
+                            </containerView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NXg-I7-zhw" userLabel="DishesCollectionView">
+                                <rect key="frame" x="0.0" y="496" width="414" height="400"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="dOi-Ek-f43"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7du-bd-1PO">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DishCollectionViewCell" id="jdH-g6-QCz" customClass="DishCollectionViewCell" customModule="Food" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zKe-LD-OVt">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="XeX-sM-GH8" id="9Mm-mM-Brn"/>
+                                    <outlet property="delegate" destination="XeX-sM-GH8" id="cgU-ay-CWl"/>
+                                    <outletCollection property="gestureRecognizers" destination="ICy-9Y-Rfz" appends="YES" id="uWv-yO-Z7C"/>
+                                </connections>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJ0-C3-ire" userLabel="SearchView">
+                                <rect key="frame" x="0.0" y="396" width="414" height="100"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Search" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MZJ-nM-DO3">
+                                        <rect key="frame" x="8" y="8" width="398" height="84"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemPinkColor"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="A1i-9J-cLt"/>
+                                    <constraint firstItem="MZJ-nM-DO3" firstAttribute="bottom" secondItem="wJ0-C3-ire" secondAttribute="bottomMargin" id="FYp-Bu-Vq8"/>
+                                    <constraint firstItem="MZJ-nM-DO3" firstAttribute="trailing" secondItem="wJ0-C3-ire" secondAttribute="trailingMargin" id="K5j-wg-CHA"/>
+                                    <constraint firstItem="MZJ-nM-DO3" firstAttribute="top" secondItem="wJ0-C3-ire" secondAttribute="topMargin" id="lSb-eb-egp"/>
+                                    <constraint firstItem="MZJ-nM-DO3" firstAttribute="leading" secondItem="wJ0-C3-ire" secondAttribute="leadingMargin" id="q88-Qf-EYy"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0bj-6B-9tK" appends="YES" id="N3w-5L-aK0"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2RS-5x-5cN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="taa-97-bbj" firstAttribute="top" secondItem="2RS-5x-5cN" secondAttribute="top" constant="50" id="1Pd-XL-BOf"/>
+                            <constraint firstItem="2RS-5x-5cN" firstAttribute="trailing" secondItem="taa-97-bbj" secondAttribute="trailing" constant="20" id="E7u-Nj-011"/>
+                            <constraint firstAttribute="bottom" secondItem="NXg-I7-zhw" secondAttribute="bottom" id="EK3-2g-D3h"/>
+                            <constraint firstItem="NXg-I7-zhw" firstAttribute="top" secondItem="wJ0-C3-ire" secondAttribute="bottom" id="F9V-bZ-2Lt"/>
+                            <constraint firstItem="wJ0-C3-ire" firstAttribute="width" secondItem="NXg-I7-zhw" secondAttribute="width" id="NWd-Cw-oeC"/>
+                            <constraint firstItem="wJ0-C3-ire" firstAttribute="centerX" secondItem="NXg-I7-zhw" secondAttribute="centerX" id="dQV-U7-diH"/>
+                            <constraint firstItem="NXg-I7-zhw" firstAttribute="leading" secondItem="2RS-5x-5cN" secondAttribute="leading" id="shw-e5-A9d"/>
+                            <constraint firstItem="taa-97-bbj" firstAttribute="leading" secondItem="2RS-5x-5cN" secondAttribute="leading" constant="20" id="uRS-Hy-aZM"/>
+                            <constraint firstItem="NXg-I7-zhw" firstAttribute="trailing" secondItem="2RS-5x-5cN" secondAttribute="trailing" id="ztr-8l-G3Q"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="NXg-I7-zhw" id="37z-0v-oE2"/>
+                        <outlet property="collectionViewHeight" destination="dOi-Ek-f43" id="YkV-bL-EPM"/>
+                        <outlet property="panGestureRecognizerOutler" destination="ICy-9Y-Rfz" id="EjH-P6-ISc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GQ9-FQ-cgJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="ICy-9Y-Rfz">
+                    <connections>
+                        <action selector="dragGesture:" destination="XeX-sM-GH8" id="daS-KH-yaO"/>
+                        <outlet property="delegate" destination="XeX-sM-GH8" id="r2e-7M-TSk"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="0bj-6B-9tK">
+                    <connections>
+                        <action selector="dragGesture:" destination="XeX-sM-GH8" id="iCm-l2-V87"/>
+                        <outlet property="delegate" destination="XeX-sM-GH8" id="93P-TO-EcC"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1776.8115942028987" y="2.6785714285714284"/>
+        </scene>
+        <!--Stories Container View Controller-->
+        <scene sceneID="KmY-um-6jn">
+            <objects>
+                <viewController id="CJ9-oO-mJQ" customClass="StoriesContainerViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GXB-hk-hcv">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="coP-Zh-4fx" userLabel="StoriesCollectionView">
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                                <color key="backgroundColor" red="0.6371851785" green="0.87450981139999995" blue="0.67379118640000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aPT-FJ-THF">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="StoryCollectionViewCell" id="oCa-mM-85d" customClass="StoryCollectionViewCell" customModule="Food" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-14" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="r9G-xS-V32">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="CJ9-oO-mJQ" id="0Ex-CG-AsJ"/>
+                                    <outlet property="delegate" destination="CJ9-oO-mJQ" id="1hx-j4-v30"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="coP-Zh-4fx" secondAttribute="bottom" id="HBB-j1-sZa"/>
+                            <constraint firstItem="coP-Zh-4fx" firstAttribute="leading" secondItem="GXB-hk-hcv" secondAttribute="leading" id="TxY-bR-XyF"/>
+                            <constraint firstAttribute="trailing" secondItem="coP-Zh-4fx" secondAttribute="trailing" id="cbD-sv-NR5"/>
+                            <constraint firstItem="coP-Zh-4fx" firstAttribute="top" secondItem="GXB-hk-hcv" secondAttribute="top" id="kL0-Uk-QTB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="storiesCollectionView" destination="coP-Zh-4fx" id="5A6-4O-fjg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hl3-yu-oNr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2743" y="-126"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBrownColor">
+            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

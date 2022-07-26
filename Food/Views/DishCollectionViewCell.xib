@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DishCollectionViewCell" customModule="Food" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="109" height="156"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="109" height="156"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jQd-4O-tmT">
+                        <rect key="frame" x="0.0" y="0.0" width="109" height="109"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="jQd-4O-tmT" secondAttribute="height" multiplier="1:1" id="fk4-Rz-8Ar"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DishTitle" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q31-QK-amr">
+                        <rect key="frame" x="16" y="117" width="77" height="39"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="jQd-4O-tmT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="6rX-HQ-jaq"/>
+                <constraint firstItem="jQd-4O-tmT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ixL-i4-84a"/>
+                <constraint firstAttribute="trailing" secondItem="jQd-4O-tmT" secondAttribute="trailing" id="m85-Yw-raQ"/>
+                <constraint firstAttribute="trailingMargin" secondItem="Q31-QK-amr" secondAttribute="trailing" id="mW6-2F-YMp"/>
+                <constraint firstItem="Q31-QK-amr" firstAttribute="top" secondItem="jQd-4O-tmT" secondAttribute="bottom" constant="8" symbolic="YES" id="mzh-Gf-9qw"/>
+                <constraint firstItem="Q31-QK-amr" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="rTH-LQ-zKi"/>
+                <constraint firstItem="Q31-QK-amr" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottomMargin" id="svI-Qt-rra"/>
+            </constraints>
+            <size key="customSize" width="109" height="156"/>
+            <connections>
+                <outlet property="dishImageView" destination="jQd-4O-tmT" id="sOn-R5-hj4"/>
+                <outlet property="dishTitle" destination="Q31-QK-amr" id="hi0-Hi-DOA"/>
+            </connections>
+            <point key="canvasLocation" x="174.63768115942031" y="101.78571428571428"/>
+        </collectionViewCell>
+    </objects>
+</document>
