@@ -9,6 +9,7 @@ import UIKit
 
 class DishesListViewController: UIViewController {
 
+    var startDrag: CGFloat = 0
     var scrollViewContentOffset: CGFloat = 0
     var padding: CGFloat = 0
     var dishesList: Array<Dish> = DishCoder.getDishes()
@@ -28,6 +29,7 @@ class DishesListViewController: UIViewController {
         padding = view.bounds.width / 20
 
         collectionViewMinHeight = view.bounds.height * 0.3
+        startDrag = collectionViewMinHeight
         collectionViewMaxHeight = view.bounds.height * 0.6
         minTotalTranslation = collectionViewMinHeight
         maxTotalTranslation = collectionViewMaxHeight
@@ -60,33 +62,31 @@ class DishesListViewController: UIViewController {
     
     var zones: Zone = .middle
     
+    var drag: CGFloat = .zero
     @IBAction func dragGesture(_ gesture: UIPanGestureRecognizer) {
-        let translation = -gesture.translation(in: view).y
-        print(translation)
-        if zones == .middle {
-            collectionViewHeight.constant += translation
-            if collectionViewHeight.constant < collectionViewMinHeight { zones = .bottom }
-            if collectionViewHeight.constant > collectionViewMaxHeight { zones = .top }
-        }
-        if zones == .top {
-            if translation >= 0 {
-                collectionViewHeight.constant = sqrt(translation)
-            }
-            if translation < 0 {
-                collectionViewHeight.constant = sqrt(-translation)
-            }
-        }
-        if zones == .bottom {
-            if translation >= 0 {
-                collectionViewHeight.constant = sqrt(translation)
-            }
-            
-            if translation < 0 {
-                collectionViewHeight.constant = sqrt(-translation)
-            }
-        }
         
+        if  gesture.state == .began {
+            //drag = collectionViewMinHeight
+        }
+        if gesture.state == .changed {
+            drag -= gesture.translation(in: view).y
+            print("GestureTran: \(gesture.translation(in: view).y)")
+            print("drag (x): \(drag)")
+            print("viewHeight: \(view.bounds.height)")
+            collectionViewHeight.constant = collectionViewMinHeight + (1.0 - (1.0 / ((drag * 0.55 / view.bounds.height) + 1.0))) * view.bounds.height
+            print("function: \((1.0 - (1.0 / ((drag * 0.55 / view.bounds.height) + 1.0))) * view.bounds.height)")
+            print("constraint: \(collectionViewHeight.constant)")
+        }
+        if gesture.state == .ended {
+
+        }
+
+//        collectionViewHeight.constant -= gesture.translation(in: view).y
+//
+//            drag -= gesture.translation(in: view).y
+//            collectionViewHeight.constant = (1.0 – (1.0 / ((x * c / d) + 1.0))) * d
         
+       // startDrag = translation
         gesture.setTranslation(.zero, in: view)
     }
     
