@@ -52,43 +52,78 @@ class DishesListViewController: UIViewController {
         return (verticalLimit * (1 - log10(yPosition/verticalLimit)))
     }
     
+    enum Zone {
+        case middle
+        case top
+        case bottom
+    }
+    
+    var zones: Zone = .middle
+    
     @IBAction func dragGesture(_ gesture: UIPanGestureRecognizer) {
-        
-        let translation = gesture.translation(in: view).y
-        if collectionViewHeight.constant <= collectionViewMinHeight {
+        let translation = -gesture.translation(in: view).y
+        print(translation)
+        if zones == .middle {
+            collectionViewHeight.constant += translation
+            if collectionViewHeight.constant < collectionViewMinHeight { zones = .bottom }
+            if collectionViewHeight.constant > collectionViewMaxHeight { zones = .top }
+        }
+        if zones == .top {
+            if translation >= 0 {
+                collectionViewHeight.constant = sqrt(translation)
+            }
             if translation < 0 {
-                collectionViewHeight.constant -= translation
+                collectionViewHeight.constant = sqrt(-translation)
             }
-            minTotalTranslation += translation
-            collectionViewHeight.constant = logMinConstraintValueForYPosition(yPosition: minTotalTranslation, verticalLimit: collectionViewMinHeight)
-            endedGestureState(gesture: gesture)
+        }
+        if zones == .bottom {
+            if translation >= 0 {
+                collectionViewHeight.constant = sqrt(translation)
+            }
             
-        } else if collectionViewHeight.constant >= collectionViewMaxHeight {
-            if gesture.view is UICollectionView {
-                if translation > 0 && gestureFlag == true {
-                    collectionViewHeight.constant -= translation
-                }
-            } else {
-                maxTotalTranslation -= translation
-                collectionViewHeight.constant = logMaxConstraintValueForYPosition(yPosition: maxTotalTranslation, verticalLimit: collectionViewMaxHeight)
-                
-                endedGestureState(gesture: gesture)
+            if translation < 0 {
+                collectionViewHeight.constant = sqrt(-translation)
             }
-        } else {
-            
-            if collectionViewHeight.constant - translation > collectionViewMaxHeight {
-                collectionViewHeight.constant = collectionViewMaxHeight
-            } else if collectionViewHeight.constant - translation < collectionViewMinHeight {
-                collectionViewHeight.constant = collectionViewMinHeight
-            } else {
-                collectionViewHeight.constant -= translation
-            }
-            endedGestureState(gesture: gesture)
         }
         
         
         gesture.setTranslation(.zero, in: view)
     }
+    
+//    let translation = gesture.translation(in: view).y
+//    if collectionViewHeight.constant <= collectionViewMinHeight {
+//        if translation < 0 {
+//            collectionViewHeight.constant -= translation
+//        }
+//        minTotalTranslation += translation
+//        collectionViewHeight.constant = logMinConstraintValueForYPosition(yPosition: minTotalTranslation, verticalLimit: collectionViewMinHeight)
+//        endedGestureState(gesture: gesture)
+//
+//    } else if collectionViewHeight.constant >= collectionViewMaxHeight {
+//        if gesture.view is UICollectionView {
+//            if translation > 0 && gestureFlag == true {
+//                collectionViewHeight.constant -= translation
+//            }
+//        } else {
+//            maxTotalTranslation -= translation
+//            collectionViewHeight.constant = logMaxConstraintValueForYPosition(yPosition: maxTotalTranslation, verticalLimit: collectionViewMaxHeight)
+//
+//            endedGestureState(gesture: gesture)
+//        }
+//    } else {
+//
+//        if collectionViewHeight.constant - translation > collectionViewMaxHeight {
+//            collectionViewHeight.constant = collectionViewMaxHeight
+//        } else if collectionViewHeight.constant - translation < collectionViewMinHeight {
+//            collectionViewHeight.constant = collectionViewMinHeight
+//        } else {
+//            collectionViewHeight.constant -= translation
+//        }
+//        endedGestureState(gesture: gesture)
+//    }
+//
+//
+//    gesture.setTranslation(.zero, in: view)
     
     //helper
     
