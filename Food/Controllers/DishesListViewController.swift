@@ -54,10 +54,7 @@ class DishesListViewController: UIViewController {
     @IBAction func dragGesture(_ gesture: UIPanGestureRecognizer) {
         
         let translation = gesture.translation(in: view).y
-        
-        if  gesture.state == .began {
-            drag = .zero
-        }
+
         if gesture.state == .changed {
             
             if collectionViewHeight.constant <= collectionViewMaxHeight && collectionViewHeight.constant >= collectionViewMinHeight {
@@ -72,15 +69,14 @@ class DishesListViewController: UIViewController {
                 drag -= translation
                 collectionViewHeight.constant = totalTranslation + (1.0 - (1.0 / (((drag - totalTranslation) * 0.3 / view.bounds.height) + 1.0))) * view.bounds.height
             }
-            
-            
-//            drag -= gesture.translation(in: view).y
-//            print("GestureTran: \(gesture.translation(in: view).y)")
-//            print("drag (x): \(drag)")
-//            print("viewHeight: \(view.bounds.height)")
-//            collectionViewHeight.constant = collectionViewMinHeight + (1.0 - (1.0 / ((drag * 0.55 / view.bounds.height) + 1.0))) * view.bounds.height
-//            print("function: \((1.0 - (1.0 / ((drag * 0.55 / view.bounds.height) + 1.0))) * view.bounds.height)")
-//            print("constraint: \(collectionViewHeight.constant)")
+        }
+        if gesture.state == .ended {
+            let middle = collectionViewMaxHeight - ((collectionViewMaxHeight - collectionViewMinHeight) / 2)
+            if collectionViewHeight.constant >= middle {
+                animateHeightTo(collectionViewMaxHeight)
+            } else if collectionViewHeight.constant < middle {
+                animateHeightTo(collectionViewMinHeight)
+            }
         }
         
         gesture.setTranslation(.zero, in: view)
