@@ -19,6 +19,8 @@ class DishViewController: UIViewController {
         
         dishImageView.backgroundColor = .yellow
         dishTableView.register(DishTableViewCell.nib(), forCellReuseIdentifier: DishTableViewCell.identifier)
+        //dishTableView.register(DishTableHeader.nib(), forHeaderFooterViewReuseIdentifier: DishTableHeader.identifier)
+        dishTableView.register(UINib(nibName: "DishTableHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "DishTableHeader")
     }
     
     func countDishes(_ dish: Dish)-> Int {
@@ -35,10 +37,8 @@ class DishViewController: UIViewController {
 
 extension DishViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        guard let dish = dish else { return nil }
-        let header = UIView()
-        header.backgroundColor = .red
-        //header.titleLabel?.text = dish.title
+        //guard let dish = dish else { return nil }
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "DishTableHeader") as! DishTableHeader
         return header
     }
     
@@ -46,9 +46,9 @@ extension DishViewController: UITableViewDelegate {
         return nil
     }
     
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 50
-//    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
 }
 
 extension DishViewController: UITableViewDataSource {

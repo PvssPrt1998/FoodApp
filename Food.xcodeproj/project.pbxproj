@@ -15,11 +15,11 @@
 		993AF2DD2875D59C00F5EA19 /* DishModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF2DC2875D59C00F5EA19 /* DishModelController.swift */; };
 		993AF2E5289A3AD800F5EA19 /* StoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF2E4289A3AD800F5EA19 /* StoryViewController.swift */; };
 		993AF2E7289A3B3100F5EA19 /* DishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF2E6289A3B3100F5EA19 /* DishViewController.swift */; };
-		993AF2EF289A49F500F5EA19 /* DishTableNameHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF2EE289A49F500F5EA19 /* DishTableNameHeader.swift */; };
+		993AF2EF289A49F500F5EA19 /* DishTableHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF2EE289A49F500F5EA19 /* DishTableHeader.swift */; };
 		993AF2F3289A4B6300F5EA19 /* DishTableMainFooterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993AF2F2289A4B6300F5EA19 /* DishTableMainFooterCollectionViewCell.xib */; };
 		993AF2F7289A4CAD00F5EA19 /* DishTableMainFooterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF2F6289A4CAD00F5EA19 /* DishTableMainFooterCollectionViewCell.swift */; };
 		993AF2FB289A505000F5EA19 /* DishTableIngredientsHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF2FA289A505000F5EA19 /* DishTableIngredientsHeaderViewController.swift */; };
-		993AF2FE289A548300F5EA19 /* DishTableNameHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993AF2FD289A548300F5EA19 /* DishTableNameHeader.xib */; };
+		993AF2FE289A548300F5EA19 /* DishTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993AF2FD289A548300F5EA19 /* DishTableHeader.xib */; };
 		993AF301289A5B1C00F5EA19 /* DishTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993AF300289A5B1C00F5EA19 /* DishTableViewCell.swift */; };
 		993AF303289A5B3200F5EA19 /* DishTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 993AF302289A5B3200F5EA19 /* DishTableViewCell.xib */; };
 		99483AFC2811B5F400CAC98C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99483AFB2811B5F400CAC98C /* AppDelegate.swift */; };
@@ -44,11 +44,11 @@
 		993AF2DC2875D59C00F5EA19 /* DishModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishModelController.swift; sourceTree = "<group>"; };
 		993AF2E4289A3AD800F5EA19 /* StoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryViewController.swift; sourceTree = "<group>"; };
 		993AF2E6289A3B3100F5EA19 /* DishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishViewController.swift; sourceTree = "<group>"; };
-		993AF2EE289A49F500F5EA19 /* DishTableNameHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableNameHeader.swift; sourceTree = "<group>"; };
+		993AF2EE289A49F500F5EA19 /* DishTableHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableHeader.swift; sourceTree = "<group>"; };
 		993AF2F2289A4B6300F5EA19 /* DishTableMainFooterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishTableMainFooterCollectionViewCell.xib; sourceTree = "<group>"; };
 		993AF2F6289A4CAD00F5EA19 /* DishTableMainFooterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableMainFooterCollectionViewCell.swift; sourceTree = "<group>"; };
 		993AF2FA289A505000F5EA19 /* DishTableIngredientsHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableIngredientsHeaderViewController.swift; sourceTree = "<group>"; };
-		993AF2FD289A548300F5EA19 /* DishTableNameHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishTableNameHeader.xib; sourceTree = "<group>"; };
+		993AF2FD289A548300F5EA19 /* DishTableHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishTableHeader.xib; sourceTree = "<group>"; };
 		993AF300289A5B1C00F5EA19 /* DishTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishTableViewCell.swift; sourceTree = "<group>"; };
 		993AF302289A5B3200F5EA19 /* DishTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DishTableViewCell.xib; sourceTree = "<group>"; };
 		99483AF82811B5F400CAC98C /* Food.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Food.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -108,8 +108,8 @@
 		993AF2FC289A545700F5EA19 /* DishTableMainHeader */ = {
 			isa = PBXGroup;
 			children = (
-				993AF2EE289A49F500F5EA19 /* DishTableNameHeader.swift */,
-				993AF2FD289A548300F5EA19 /* DishTableNameHeader.xib */,
+				993AF2EE289A49F500F5EA19 /* DishTableHeader.swift */,
+				993AF2FD289A548300F5EA19 /* DishTableHeader.xib */,
 			);
 			path = DishTableMainHeader;
 			sourceTree = "<group>";
@@ -265,7 +265,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				993AF2FE289A548300F5EA19 /* DishTableNameHeader.xib in Resources */,
+				993AF2FE289A548300F5EA19 /* DishTableHeader.xib in Resources */,
 				993AF303289A5B3200F5EA19 /* DishTableViewCell.xib in Resources */,
 				99483B082811B5F600CAC98C /* LaunchScreen.storyboard in Resources */,
 				993AF2D62873392300F5EA19 /* StoryCollectionViewCell.xib in Resources */,
@@ -298,7 +298,7 @@
 				995E2F77284534EE003A6B76 /* Dish.swift in Sources */,
 				995E2F7A2845400E003A6B76 /* DishCollectionViewCell.swift in Sources */,
 				99483AFE2811B5F400CAC98C /* SceneDelegate.swift in Sources */,
-				993AF2EF289A49F500F5EA19 /* DishTableNameHeader.swift in Sources */,
+				993AF2EF289A49F500F5EA19 /* DishTableHeader.swift in Sources */,
 				993AF2D828733B9400F5EA19 /* Story.swift in Sources */,
 				993AF2FB289A505000F5EA19 /* DishTableIngredientsHeaderViewController.swift in Sources */,
 			);

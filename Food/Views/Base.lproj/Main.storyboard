@@ -203,16 +203,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yoL-kv-xnW" userLabel="Dish Table View">
                                 <rect key="frame" x="0.0" y="277" width="414" height="565"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="header" rowHeight="114" id="lOM-Qb-Y82" userLabel="HeaderCell" customClass="DishTableNameHeader" customModule="Food" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="114"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lOM-Qb-Y82" id="7Q0-QN-qHb" customClass="DishTableNameHeader" customModule="Food" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="114" id="sHV-Fu-SO2" userLabel="TableViewCell" customClass="DishTableViewCell" customModule="Food" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="158.5" width="414" height="114"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sHV-Fu-SO2" id="Lnp-xC-eRg">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
