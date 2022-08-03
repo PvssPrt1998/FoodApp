@@ -37,17 +37,16 @@ class DishesListViewController: UIViewController {
         setupConstraints()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationController = segue.destination as? DishViewController, let index = collectionView.indexPathsForSelectedItems?.first {
+            destinationController.dish = dishesList.first
+        }
+    }
+    
     private func setupConstraints() {
         collectionViewHeight.constant = collectionViewMinHeight
         collectionView.contentInset.left = padding
         collectionView.contentInset.right = padding
-    }
-    
-    func logMaxConstraintValueForYPosition(yPosition : CGFloat, verticalLimit: CGFloat) -> CGFloat {
-        return verticalLimit * (1 + log10(yPosition/verticalLimit))
-    }
-    func logMinConstraintValueForYPosition(yPosition : CGFloat, verticalLimit: CGFloat) -> CGFloat {
-        return (verticalLimit * (1 - log10(yPosition/verticalLimit)))
     }
     
     var drag: CGFloat = .zero
@@ -84,18 +83,6 @@ class DishesListViewController: UIViewController {
     
 
     //helper
-    
-    func endedGestureState(gesture: UIPanGestureRecognizer){
-        if gesture.state == .ended {
-            let middle = collectionViewMaxHeight - ((collectionViewMaxHeight - collectionViewMinHeight) / 2)
-            if collectionViewHeight.constant >= middle {
-                animateHeightTo(collectionViewMaxHeight)
-            } else if collectionViewHeight.constant < middle {
-                animateHeightTo(collectionViewMinHeight)
-            }
-        }
-    }
-    
     func animateHeightTo(_ limitHeight: CGFloat) {
         collectionViewHeight.constant = limitHeight
         
@@ -136,6 +123,7 @@ extension DishesListViewController: UICollectionViewDelegateFlowLayout {
 
 extension DishesListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "DishSegue", sender: self)
         collectionView.deselectItem(at: indexPath, animated: true)
     }
     

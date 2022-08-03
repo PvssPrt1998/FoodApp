@@ -12,7 +12,7 @@
         <!--Dishes List View Controller-->
         <scene sceneID="doR-s4-jdx">
             <objects>
-                <viewController id="XeX-sM-GH8" customClass="DishesListViewController" customModule="ViewLikeModalPresentation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XeX-sM-GH8" customClass="DishesListViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="J7Z-Jq-sGq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                             </containerView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NXg-I7-zhw" userLabel="DishesCollectionView">
                                 <rect key="frame" x="0.0" y="496" width="414" height="400"/>
-                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="400" id="dOi-Ek-f43"/>
                                 </constraints>
@@ -47,6 +47,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                        <connections>
+                                            <segue destination="p5Y-w7-vXB" kind="show" identifier="DishSegue" id="bAg-oz-f2f"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -80,7 +83,7 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2RS-5x-5cN"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.85098039215686272" green="0.61176470588235299" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="taa-97-bbj" firstAttribute="top" secondItem="2RS-5x-5cN" secondAttribute="top" constant="50" id="1Pd-XL-BOf"/>
@@ -126,7 +129,6 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="coP-Zh-4fx" userLabel="StoriesCollectionView">
                                 <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
-                                <color key="backgroundColor" red="0.6371851785" green="0.87450981139999995" blue="0.67379118640000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aPT-FJ-THF">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -150,6 +152,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="csU-Yg-zrM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="coP-Zh-4fx" secondAttribute="bottom" id="HBB-j1-sZa"/>
@@ -160,11 +163,90 @@
                     </view>
                     <connections>
                         <outlet property="storiesCollectionView" destination="coP-Zh-4fx" id="5A6-4O-fjg"/>
+                        <segue destination="XNw-J8-FGi" kind="show" id="Z5Q-ko-WGZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hl3-yu-oNr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2743" y="-126"/>
+        </scene>
+        <!--Story View Controller-->
+        <scene sceneID="b5w-vx-u2t">
+            <objects>
+                <viewController id="XNw-J8-FGi" customClass="StoryViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eYo-pQ-YSo">
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="z1V-8f-Ewk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DME-Wv-eXn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G9i-2N-Imq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3599" y="-223"/>
+        </scene>
+        <!--Dish View Controller-->
+        <scene sceneID="emx-6w-TrB">
+            <objects>
+                <viewController id="p5Y-w7-vXB" customClass="DishViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="znZ-lB-aFW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gwz-1p-nMB">
+                                <rect key="frame" x="0.0" y="44" width="414" height="233"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gwz-1p-nMB" secondAttribute="height" multiplier="16:9" id="g8h-TV-b5A"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yoL-kv-xnW" userLabel="Dish Table View">
+                                <rect key="frame" x="0.0" y="277" width="414" height="565"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="header" rowHeight="114" id="lOM-Qb-Y82" userLabel="HeaderCell" customClass="DishTableNameHeader" customModule="Food" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="114"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lOM-Qb-Y82" id="7Q0-QN-qHb" customClass="DishTableNameHeader" customModule="Food" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="114" id="sHV-Fu-SO2" userLabel="TableViewCell" customClass="DishTableViewCell" customModule="Food" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="158.5" width="414" height="114"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sHV-Fu-SO2" id="Lnp-xC-eRg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="p5Y-w7-vXB" id="Llz-Jm-edp"/>
+                                    <outlet property="delegate" destination="p5Y-w7-vXB" id="5dC-Ad-49l"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Nsm-0s-e7d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yoL-kv-xnW" firstAttribute="leading" secondItem="Nsm-0s-e7d" secondAttribute="leading" id="6hj-Vc-a0F"/>
+                            <constraint firstAttribute="bottom" secondItem="yoL-kv-xnW" secondAttribute="bottom" id="YPn-R2-l5j"/>
+                            <constraint firstItem="Nsm-0s-e7d" firstAttribute="trailing" secondItem="gwz-1p-nMB" secondAttribute="trailing" id="glj-cb-t7l"/>
+                            <constraint firstItem="yoL-kv-xnW" firstAttribute="trailing" secondItem="Nsm-0s-e7d" secondAttribute="trailing" id="n18-ym-6TJ"/>
+                            <constraint firstItem="gwz-1p-nMB" firstAttribute="top" secondItem="Nsm-0s-e7d" secondAttribute="top" id="ufy-VW-5W1"/>
+                            <constraint firstItem="yoL-kv-xnW" firstAttribute="top" secondItem="gwz-1p-nMB" secondAttribute="bottom" id="upi-tF-JpI"/>
+                            <constraint firstItem="gwz-1p-nMB" firstAttribute="leading" secondItem="Nsm-0s-e7d" secondAttribute="leading" id="vJv-c1-M3C"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BPp-iV-2xP"/>
+                    <connections>
+                        <outlet property="dishImageView" destination="gwz-1p-nMB" id="B1w-KR-h4W"/>
+                        <outlet property="dishTableView" destination="yoL-kv-xnW" id="qdD-mh-f6z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WCC-S2-TRn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3569.5652173913045" y="514.95535714285711"/>
         </scene>
     </scenes>
     <resources>
@@ -179,9 +261,6 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
