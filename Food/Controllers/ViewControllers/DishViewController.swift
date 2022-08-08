@@ -19,8 +19,8 @@ class DishViewController: UIViewController {
         
         dishImageView.backgroundColor = .yellow
         dishTableView.register(DishTableViewCell.nib(), forCellReuseIdentifier: DishTableViewCell.identifier)
-        //dishTableView.register(DishTableHeader.nib(), forHeaderFooterViewReuseIdentifier: DishTableHeader.identifier)
-        dishTableView.register(UINib(nibName: "DishTableHeader", bundle: nil), forHeaderFooterViewReuseIdentifier: "DishTableHeader")
+        dishTableView.register(DishTableHeader.nib(), forHeaderFooterViewReuseIdentifier: DishTableHeader.identifier)
+        dishTableView.register(IngredientsCollectionFooterView.nib() , forHeaderFooterViewReuseIdentifier: IngredientsCollectionFooterView.identifier)
     }
     
     func countDishes(_ dish: Dish)-> Int {
@@ -33,21 +33,53 @@ class DishViewController: UIViewController {
         }
         return count
     }
+    
+    func getIngredientList(_ dish: Dish)-> Dictionary<String, Int>? {
+        var ingredients: Dictionary<String, Int> = [:]
+        
+        if dish is Ingredient{
+            ingredients[dish.title] = 500
+            return ingredients
+        }
+        
+        for subDish in dish.subDishes {
+            guard let tmpIngredients = getIngredientList(subDish) else { return nil }
+            ingredients.merge(tmpIngredients) { current, _ in current }
+        }
+        
+        return ingredients
+    }
 }
 
 extension DishViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        //guard let dish = dish else { return nil }
-        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "DishTableHeader") as! DishTableHeader
+        guard let dish = dish else { return nil }
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: DishTableHeader.identifier) as? DishTableHeader else { return nil }
+        header.dishTitleLabel?.text = dish.title
+        
         return header
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return nil
+        
+        guard section == 0,
+              let dish = dish,
+              let ingredients = getIngredientList(dish),
+              let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: IngredientsCollectionFooterView.identifier) as? IngredientsCollectionFooterView
+        else { return nil }
+        footer.ingredients = ingredients
+        
+        return footer
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 50
+//    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 200
+        } else { return 0 }
     }
 }
 
