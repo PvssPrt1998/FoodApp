@@ -16,13 +16,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="147" height="32"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNh-5F-slg">
-                        <rect key="frame" x="0.0" y="0.0" width="97.5" height="32"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNh-5F-slg">
+                        <rect key="frame" x="0.0" y="0.0" width="97" height="32"/>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="Ingredient"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF2-pA-Yxc">
-                        <rect key="frame" x="105.5" y="0.0" width="41.5" height="32"/>
+                        <rect key="frame" x="105" y="0.0" width="42" height="32"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -32,6 +32,7 @@
                     <constraint firstItem="DF2-pA-Yxc" firstAttribute="top" secondItem="HTO-X0-hl2" secondAttribute="top" id="0YU-B6-UAe"/>
                     <constraint firstAttribute="bottom" secondItem="KNh-5F-slg" secondAttribute="bottom" id="7LV-it-cz4"/>
                     <constraint firstItem="KNh-5F-slg" firstAttribute="leading" secondItem="HTO-X0-hl2" secondAttribute="leading" id="9zQ-9a-Zen"/>
+                    <constraint firstAttribute="leading" relation="lessThanOrEqual" secondItem="KNh-5F-slg" secondAttribute="trailing" id="S5H-9j-qbJ"/>
                     <constraint firstAttribute="bottom" secondItem="DF2-pA-Yxc" secondAttribute="bottom" id="TTQ-Ok-i7P"/>
                     <constraint firstAttribute="trailing" secondItem="DF2-pA-Yxc" secondAttribute="trailing" id="hzD-yl-d4g"/>
                     <constraint firstItem="KNh-5F-slg" firstAttribute="top" secondItem="HTO-X0-hl2" secondAttribute="top" id="lSt-MC-fPq"/>
