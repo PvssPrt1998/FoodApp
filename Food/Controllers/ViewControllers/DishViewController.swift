@@ -20,12 +20,7 @@ class DishViewController: UIViewController {
         dishImageView.backgroundColor = .yellow
         dishTableView.register(DishTableViewCell.nib(), forCellReuseIdentifier: DishTableViewCell.identifier)
         dishTableView.register(DishTableHeader.nib(), forHeaderFooterViewReuseIdentifier: DishTableHeader.identifier)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationController = segue.destination as? IngredientsContainerViewController, let dish = dish {
-            destinationController.ingredients = getIngredientList(dish)
-        }
+        dishTableView.register(IngredientTableViewFooter.nib() , forHeaderFooterViewReuseIdentifier: IngredientTableViewFooter.identifier)
     }
     
     func countDishes(_ dish: Dish)-> Int {
@@ -58,20 +53,24 @@ class DishViewController: UIViewController {
 
 extension DishViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: DishTableHeader.identifier) as? DishTableHeader else { return nil }
         guard let dish = dish else { return nil }
-        if section == 1 {
-            header.dishTitleLabel?.text = "Ingredients"
-            return header
-        }
-        
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: DishTableHeader.identifier) as? DishTableHeader else { return nil }
         header.dishTitleLabel?.text = dish.title
         
         return header
     }
     
-
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        guard section == 0,
+              let dish = dish,
+              let ingredients = getIngredientList(dish),
+              let footer = tableView.dequeueReusableHeaderFooterView(withIdentifier: IngredientTableViewFooter.identifier) as? IngredientTableViewFooter
+        else { return nil }
+        footer.ingredients = ingredients
+        
+        return footer
+    }
 }
 
 extension DishViewController: UITableViewDataSource {
@@ -83,12 +82,6 @@ extension DishViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.section == 1 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientCell") else { return UITableViewCell() }
-            return cell
-        }
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DishTableViewCell.identifier, for: indexPath) as? DishTableViewCell else { return UITableViewCell() }
         cell.descriotionTextView.text = dish?.description
         return cell
@@ -96,6 +89,6 @@ extension DishViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let dish = dish else { return 0 }
-        return countDishes(dish) + 2
+        return countDishes(dish) + 1
     }
 }

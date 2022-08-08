@@ -3,48 +3,48 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IngredientCollectionViewCell" id="bKJ-iK-KN2" customClass="IngredientCollectionViewCell" customModule="Food" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="147" height="32"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HTO-X0-hl2">
-                <rect key="frame" x="0.0" y="0.0" width="147" height="32"/>
-                <autoresizingMask key="autoresizingMask"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="IngredientCollectionViewCell" customModule="Food" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="146" height="52"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="146" height="52"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KNh-5F-slg">
-                        <rect key="frame" x="0.0" y="0.0" width="97" height="32"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Ingredient"/>
-                    </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DF2-pA-Yxc">
-                        <rect key="frame" x="105" y="0.0" width="42" height="32"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GB0-q7-0aY">
+                        <rect key="frame" x="97.5" y="0.0" width="48.5" height="52"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgl-hE-BJW">
+                        <rect key="frame" x="0.0" y="0.0" width="89.5" height="52"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Ingredient"/>
+                    </button>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="DF2-pA-Yxc" firstAttribute="top" secondItem="HTO-X0-hl2" secondAttribute="top" id="0YU-B6-UAe"/>
-                    <constraint firstAttribute="bottom" secondItem="KNh-5F-slg" secondAttribute="bottom" id="7LV-it-cz4"/>
-                    <constraint firstItem="KNh-5F-slg" firstAttribute="leading" secondItem="HTO-X0-hl2" secondAttribute="leading" id="9zQ-9a-Zen"/>
-                    <constraint firstAttribute="leading" relation="lessThanOrEqual" secondItem="KNh-5F-slg" secondAttribute="trailing" id="S5H-9j-qbJ"/>
-                    <constraint firstAttribute="bottom" secondItem="DF2-pA-Yxc" secondAttribute="bottom" id="TTQ-Ok-i7P"/>
-                    <constraint firstAttribute="trailing" secondItem="DF2-pA-Yxc" secondAttribute="trailing" id="hzD-yl-d4g"/>
-                    <constraint firstItem="KNh-5F-slg" firstAttribute="top" secondItem="HTO-X0-hl2" secondAttribute="top" id="lSt-MC-fPq"/>
-                    <constraint firstItem="DF2-pA-Yxc" firstAttribute="leading" secondItem="KNh-5F-slg" secondAttribute="trailing" constant="8" symbolic="YES" id="lZz-vr-tEq"/>
-                </constraints>
-            </collectionViewCellContentView>
-            <size key="customSize" width="147" height="32"/>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="dgl-hE-BJW" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="GSQ-2c-eXQ"/>
+                <constraint firstItem="GB0-q7-0aY" firstAttribute="leading" secondItem="dgl-hE-BJW" secondAttribute="trailing" constant="8" symbolic="YES" id="REa-pX-rL2"/>
+                <constraint firstAttribute="bottom" secondItem="dgl-hE-BJW" secondAttribute="bottom" id="V2F-eM-Fm7"/>
+                <constraint firstAttribute="trailing" secondItem="GB0-q7-0aY" secondAttribute="trailing" id="bqq-ee-8zu"/>
+                <constraint firstItem="dgl-hE-BJW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="lcj-Q8-UWC"/>
+                <constraint firstItem="GB0-q7-0aY" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="slm-H8-rbz"/>
+                <constraint firstAttribute="bottom" secondItem="GB0-q7-0aY" secondAttribute="bottom" id="vbp-d1-gUU"/>
+            </constraints>
+            <size key="customSize" width="146" height="52"/>
             <connections>
-                <outlet property="ingredientButton" destination="KNh-5F-slg" id="BNL-Fb-L2E"/>
-                <outlet property="ingredientWeightLabel" destination="DF2-pA-Yxc" id="Zzm-hF-ToL"/>
+                <outlet property="ingredientButton" destination="dgl-hE-BJW" id="Q9D-r4-VDx"/>
+                <outlet property="ingredientWeightLabel" destination="GB0-q7-0aY" id="sBI-Xd-8s6"/>
             </connections>
-            <point key="canvasLocation" x="167" y="40"/>
+            <point key="canvasLocation" x="183" y="-36"/>
         </collectionViewCell>
     </objects>
 </document>

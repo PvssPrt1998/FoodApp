@@ -9,7 +9,6 @@ import UIKit
 
 class DishTableHeader: UITableViewHeaderFooterView{
 
-
     @IBOutlet weak var dishTitleLabel: UILabel!
     
     static let identifier: String = "DishTableHeader"

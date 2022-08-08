@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="100" id="0FW-C0-fOh"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="CJ9-oO-mJQ" kind="embed" id="AJh-l4-oWa"/>
+                                    <segue destination="CJ9-oO-mJQ" kind="embed" identifier="StoriesContainerControllerSegue" id="AJh-l4-oWa"/>
                                 </connections>
                             </containerView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="NXg-I7-zhw" userLabel="DishesCollectionView">
@@ -163,7 +163,7 @@
                     </view>
                     <connections>
                         <outlet property="storiesCollectionView" destination="coP-Zh-4fx" id="5A6-4O-fjg"/>
-                        <segue destination="XNw-J8-FGi" kind="show" id="Z5Q-ko-WGZ"/>
+                        <segue destination="XNw-J8-FGi" kind="show" identifier="StoryViewControllerSegue" id="Z5Q-ko-WGZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hl3-yu-oNr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -189,7 +189,7 @@
         <!--Dish View Controller-->
         <scene sceneID="emx-6w-TrB">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="p5Y-w7-vXB" customClass="DishViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DishViewControllerStoryboard" modalPresentationStyle="fullScreen" id="p5Y-w7-vXB" customClass="DishViewController" customModule="Food" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="znZ-lB-aFW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -200,21 +200,13 @@
                                     <constraint firstAttribute="width" secondItem="gwz-1p-nMB" secondAttribute="height" multiplier="16:9" id="g8h-TV-b5A"/>
                                 </constraints>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yoL-kv-xnW" userLabel="Dish Table View">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="yoL-kv-xnW" userLabel="Dish Table View">
                                 <rect key="frame" x="0.0" y="277" width="414" height="619"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="114" id="sHV-Fu-SO2" userLabel="TableViewCell" customClass="DishTableViewCell" customModule="Food" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sHV-Fu-SO2" id="Lnp-xC-eRg">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IngredientCell" rowHeight="114" id="wDN-1x-CNQ">
-                                        <rect key="frame" x="0.0" y="158.5" width="414" height="114"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wDN-1x-CNQ" id="m4c-vS-TS4">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
