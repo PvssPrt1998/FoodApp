@@ -18,6 +18,7 @@ class IngredientTableViewFooter: UITableViewHeaderFooterView{
     override func awakeFromNib() {
         super.awakeFromNib()
         let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         ingredientCollectionView.collectionViewLayout = layout
         ingredientCollectionView.register(IngredientCollectionViewCell.nib(), forCellWithReuseIdentifier: IngredientCollectionViewCell.identifier)
         ingredientCollectionView.delegate = self
@@ -56,6 +57,6 @@ extension IngredientTableViewFooter: UICollectionViewDataSource {
 }
 
 extension IngredientTableViewFooter: UICollectionViewDelegateFlowLayout {
-    
+
 }
 
