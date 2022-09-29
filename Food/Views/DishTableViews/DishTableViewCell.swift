@@ -8,20 +8,12 @@
 import UIKit
 
 class DishTableViewCell: UITableViewCell {
-    @IBOutlet var descriotionTextView: UITextView!
+    
+    @IBOutlet weak var descriptionTextView: UITextView!
     
     static let identifier: String = "DishTableViewCell"
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     func setupDescription(_ description: String){
-        descriotionTextView.text = description
+        descriptionTextView?.text = description
     }
-    
-    static func nib() -> UINib {
-        return UINib(nibName: "DishTableViewCell", bundle: nil)
-    }
-    
 }

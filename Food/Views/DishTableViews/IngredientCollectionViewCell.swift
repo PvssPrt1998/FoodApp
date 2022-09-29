@@ -12,19 +12,10 @@ class IngredientCollectionViewCell: UICollectionViewCell {
     static let identifier = "IngredientCollectionViewCell"
     
     @IBOutlet weak var ingredientButton: UIButton!
-    @IBOutlet weak var ingredientWeightLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    static func nib() -> UINib {
-        return UINib(nibName: "IngredientCollectionViewCell", bundle: nil)
-    }
+    // @IBOutlet weak var ingredientWeightLabel: UILabel!
     
     public func configure(with title: String, and weight: Int) {
         ingredientButton.setTitle(title, for: .normal)
-        ingredientWeightLabel.text = String(weight)
+        //ingredientWeightLabel.text = String(weight)
     }
 }

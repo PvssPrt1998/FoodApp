@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class DishItem: Dish, Codable{
+public class DishItem: Dish, Codable {
     
     public var title: String
     public var description: String

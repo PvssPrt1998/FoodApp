@@ -35,7 +35,7 @@
             <connections>
                 <outlet property="storyImageView" destination="hsY-En-RcL" id="DGX-b2-JnQ"/>
             </connections>
-            <point key="canvasLocation" x="900.00000000000011" y="-127.23214285714285"/>
+            <point key="canvasLocation" x="835" y="-129"/>
         </collectionViewCell>
     </objects>
     <resources>
